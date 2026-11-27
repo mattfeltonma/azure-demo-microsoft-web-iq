@@ -1,0 +1,72 @@
+locals {
+
+  # Convert the region name to a unique abbreviation
+   region_abbreviations = {
+    "australiacentral"   = "acl",
+    "australiacentral2"  = "acl2",
+    "australiaeast"      = "ae",
+    "australiasoutheast" = "ase",
+    "brazilsouth"        = "brs",
+    "brazilsoutheast"    = "bse",
+    "canadacentral"      = "cnc",
+    "canadaeast"         = "cne",
+    "centralindia"       = "ci",
+    "centralus"          = "cus",
+    "centraluseuap"      = "ccy",
+    "eastasia"           = "ea",
+    "eastus"             = "eus",
+    "eastus2"            = "eus2",
+    "eastus2euap"        = "ecy",
+    "francecentral"      = "frc",
+    "francesouth"        = "frs",
+    "germanynorth"       = "gn",
+    "germanywestcentral" = "gwc",
+    "israelcentral"      = "ilc",
+    "italynorth"         = "itn",
+    "japaneast"          = "jpe",
+    "japanwest"          = "jpw",
+    "jioindiacentral"    = "jic",
+    "jioindiawest"       = "jiw",
+    "koreacentral"       = "krc",
+    "koreasouth"         = "krs",
+    "mexicocentral"      = "mxc",
+    "newzealandnorth"    = "nzn",
+    "northcentralus"     = "ncus",
+    "northeurope"        = "ne",
+    "norwayeast"         = "nwe",
+    "norwaywest"         = "nww",
+    "polandcentral"      = "plc",
+    "qatarcentral"       = "qac",
+    "southafricanorth"   = "san",
+    "southafricawest"    = "saw",
+    "southcentralus"     = "scus",
+    "southeastasia"      = "sea",
+    "southindia"         = "si",
+    "spaincentral"       = "spac"
+    "swedencentral"      = "swc",
+    "switzerlandnorth"   = "swn",
+    "switzerlandwest"    = "sww",
+    "uaecentral"         = "uaec",
+    "uaenorth"           = "uaen",
+    "uksouth"            = "uks",
+    "ukwest"             = "ukw",
+    "westcentralus"      = "wcus",
+    "westeurope"         = "we",
+    "westindia"          = "wi",
+    "westus"             = "wus",
+    "westus2"            = "wus2",
+    "westus3"            = "wus3"
+  }
+
+  ##### Combine required and user-specified tags
+  # Add required tags and merge them with the provided tags
+  required_tags = {
+    created_date = time_static.created.rfc3339
+    created_by   = data.azurerm_client_config.identity_config.object_id
+  }
+
+  tags = merge(
+    var.tags,
+    local.required_tags
+  )
+}

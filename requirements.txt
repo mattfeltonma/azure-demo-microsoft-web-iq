@@ -1,0 +1,6 @@
+jupyter
+azure-identity
+python-dotenv
+colorlog
+mcp
+webiq==1.2.1
