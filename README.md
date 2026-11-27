@@ -1,4 +1,4 @@
-# azure-demo-microsoft-iq
+# Microsoft Web IQ Demo
 
 A demo of Microsoft Web IQ, covering customer management, scopes, search through the REST API, the MCP Server, and the Python SDK. It deploys its Azure prerequisites with Terraform and walks through each step in a Jupyter notebook.
 
