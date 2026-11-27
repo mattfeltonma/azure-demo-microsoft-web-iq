@@ -1,3 +1,6 @@
-subscription_id = "00000000-0000-0000-0000-000000000000"
-location        = "eastus2"
-name_prefix     = "msiq-demo"
+region = "eastus2"
+
+tags = {
+    environment = "demo", 
+    product = "webiq"
+}
